@@ -1,0 +1,24 @@
+import cryptography
+from cryptography.fernet import Fernet
+key=Fernet.generate_key()
+f=Fernet(key)
+token=f.encrypt(b"Harish is a good boy")
+token
+b'...'
+f.decrypt(token)
+b'Harish is a good boy'
+key=Fernet.generate_key()
+cipher_suite=Fernet(key)
+plain_text=b"Harish is a good boy"
+cipher_text=cipher_suite.encrypt(plain_text)
+decrypted_text=cipher_suite.decrypt(cipher_text)
+print("Original Data:", plain_text)
+print("Encrypted Data:", cipher_text)
+print("Decrypted Data:", decrypted_text)
+
+
+output:
+
+Original Data: b'Harish is a good boy'
+Encrypted Data: b'gAAAAABmtEWuYnvRPeyF_hQpf76IaVgtz_XruOhwXaINpXyaNb-ZYTQyHfhR7-DrM3efos7HD8gb0Np8jkZM-SrGsHMUFL2ON6mbXuU1ngIbZlvONN226ls='
+Decrypted Data: b'Harish is a good boy'
